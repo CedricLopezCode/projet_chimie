@@ -1,0 +1,14 @@
+div{
+    justify-content: space-around;
+}
+a{
+    margin-top: 1em;
+    text-decoration: none;
+    font-weight: bold;
+    color: rgba(255, 0, 0, 0.671);
+    font-size: 3em;
+}
+img{
+    height: 5em;
+    margin-bottom: 1em;
+}
