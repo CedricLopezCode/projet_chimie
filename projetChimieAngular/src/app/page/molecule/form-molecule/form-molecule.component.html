@@ -1,1 +1,64 @@
-<p>form-molecule works!</p>
+<div>
+	<form class="formulaire flex-col-center formulaire_standard" id="formulaire_molecule" (ngSubmit) = "onSubmit()">
+		<!-- <input type="hidden" class="form-control" name="nombre_atomique"> -->
+		<section class="flex-row section_form" id="setion_formule_brute"> <!--  FORMULE BRUTE-->
+            <div class="flex-row"> 
+                <label class="form-label">C</label>
+               <!-- <input [(ngModel)]="moleculeAAnalyser.nb_C" type="number" class="form-control" [formControl]="nb_C">-->
+                <select [(ngModel)]="moleculeAAnalyser.nb_C" class="form-select" [formControl]="nb_C_verif" >
+                    <option *ngFor="let c of comptage" [ngValue]="c">{{c}}</option>
+                </select>
+                 
+                <label class="form-label">H</label>
+                <input [(ngModel)]="this.nombre_de_H" type="number" class="form-control" [formControl]="nb_H_verif" value="calcul_nombre_de_H()" readonly>
+               
+                <label class="form-label">O</label>
+               <select [(ngModel)]="moleculeAAnalyser.nb_O" class="form-select" [formControl]="nb_O_verif">
+                    <option [ngValue]="0" selected>0</option>
+                    <div *ngFor="let o of comptage">
+                        <div *ngIf="o >= nb_C_verif.value">
+                            <option [ngValue]="o">{{o}}</option>
+                        </div>
+                    </div>
+                </select>
+
+                <label class="form-label">N</label>
+               <!-- <input [(ngModel)]="moleculeAAnalyser.nb_N" type="number" class="form-control"  [formControl]="nb_N_verif">-->
+               <select [(ngModel)]="moleculeAAnalyser.nb_N" class="form-select" [formControl]="nb_N_verif">
+                    <option [ngValue]="0" selected>0</option>
+                    <option *ngFor="let n of comptage;" value="n">{{n}}</option>
+                </select>
+            </div>
+        </section>
+        nb_C {{moleculeAAnalyser.nb_C}}  {{nb_C_verif.value}}
+        h: {{calcul_nombre_de_H()}}
+        <section class="flex-row section_form" id="section_fonctions"> <!--  FONTIONS CHIMIQUES-->
+            <div class="form-check">
+                <input [(ngModel)]="moleculeAAnalyser.alcene" class="form-check-input" type="checkbox" value="" [formControl]="alcene_verif">
+                Alcene
+                <data *ngIf="alcene_verif.value">
+                        sur le C n°
+                        <select [(ngModel)]="moleculeAAnalyser.alcene" class="form-select" name="numC_alcene">
+                              <option *ngFor="let c of nb_C_verif.value;" value="c.index">{{c.index}}</option>
+                        </select>
+                </data>
+            </div>
+            {{alcene_verif.value}}
+           
+            
+            <button type="submit" class="btn btn-success">Ajouter</button>
+        </section>
+	</form>
+</div>
+<!--
+<div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+    <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+    <label class="form-check-label" for="flexCheckDefault">
+      Default checkbox
+    </label>
+  </div>
+-->

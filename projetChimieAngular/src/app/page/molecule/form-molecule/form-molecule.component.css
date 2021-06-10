@@ -1,0 +1,17 @@
+.section_form{
+    display: inline;
+}
+#formulaire_molecule{
+    width: 80%;
+    margin: auto;
+}
+#formulaire_molecule label{
+    margin-right: 5px;
+}
+#formulaire_molecule input{
+    margin-right: 1em;
+}
+#setion_formule_brute input{
+    margin-right: 2em;
+    width: 100px;
+}

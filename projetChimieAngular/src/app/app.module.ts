@@ -14,7 +14,7 @@ import { FormElementComponent } from './page/element/form-element/form-element.c
 import { FormMoleculeComponent } from './page/molecule/form-molecule/form-molecule.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { InfoMoleculeComponent } from './info-molecule/info-molecule.component';
 
@@ -37,7 +37,8 @@ import { InfoMoleculeComponent } from './info-molecule/info-molecule.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
