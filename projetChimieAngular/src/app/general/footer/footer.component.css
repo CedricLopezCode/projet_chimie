@@ -1,0 +1,15 @@
+.footerchimie{
+    justify-content: space-around;
+    padding: 10px;
+    height: 5em;
+    background: turquoise;
+    color: rgba(255, 0, 0, 0.671);
+    font-weight: bold;
+    font-size: 1em;
+}
+.footerchimie a{
+    text-decoration: none;
+}
+.footerchimie img{
+    height: 2.8em;
+}
