@@ -1,1 +1,17 @@
-<p>liste-element works!</p>
+<!-- LISTE des Elements -->
+<div id="table_elements">
+    <table class="listeRead">
+        <tr>
+            <th>Numéro Atomique</th>
+            <th>Symbole</th>
+            <th>Nom</th>
+            <th>Masse Molaire Atomique</th>
+        </tr>
+        <tr *ngFor="let element of listeElements">
+            <td>{{element.nombre_atomique}}</td>
+            <td>{{element.nom}}</td>
+            <td>{{element.symbole}}</td>
+            <td>{{element.masse_atomique}}</td>
+        </tr>
+    </table>
+</div>

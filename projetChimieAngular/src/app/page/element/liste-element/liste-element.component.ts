@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ElementService } from '../element.service';
+import { Element } from '../element.model';
 
 @Component({
   selector: 'liste_element',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListeElementComponent implements OnInit {
 
-  constructor() { }
+  listeElements!: Element[];
+
+  constructor(private serviceElement: ElementService) { }
 
   ngOnInit(): void {
+    this.serviceElement.listeElements().subscribe(
+      data => {this.listeElements = data;}
+    );
   }
 
 }

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListeMoleculeComponent } from './liste-molecule.component';
+import { InfoMoleculeComponent } from './info-molecule.component';
 
-describe('ListeMoleculeComponent', () => {
-  let component: ListeMoleculeComponent;
-  let fixture: ComponentFixture<ListeMoleculeComponent>;
+describe('InfoMoleculeComponent', () => {
+  let component: InfoMoleculeComponent;
+  let fixture: ComponentFixture<InfoMoleculeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListeMoleculeComponent ]
+      declarations: [ InfoMoleculeComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ListeMoleculeComponent);
+    fixture = TestBed.createComponent(InfoMoleculeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

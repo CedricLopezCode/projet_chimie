@@ -11,12 +11,12 @@ import { RetrosyntheseComponent } from './page/retrosynthese/retrosynthese.compo
 import { HomeComponent } from './page/home/home.component';
 import { ListeElementComponent } from './page/element/liste-element/liste-element.component';
 import { FormElementComponent } from './page/element/form-element/form-element.component';
-import { ListeMoleculeComponent } from './page/molecule/liste-molecule/liste-molecule.component';
 import { FormMoleculeComponent } from './page/molecule/form-molecule/form-molecule.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { InfoMoleculeComponent } from './info-molecule/info-molecule.component';
 
 @NgModule({
   declarations: [
@@ -30,8 +30,8 @@ import { AppRoutingModule } from './app-routing.module';
     HomeComponent,
     ListeElementComponent,
     FormElementComponent,
-    ListeMoleculeComponent,
-    FormMoleculeComponent
+    FormMoleculeComponent,
+    InfoMoleculeComponent
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,23 @@
-<p>form-element works!</p>
+<!-- FORM VIDE AJOUT -->
+<div>
+	<form class="formulaire flex-col-center formulaire_standard formulaire_element" (ngSubmit) = "onSubmit()">
+		<!-- <input type="hidden" class="form-control" name="nombre_atomique"> -->
+		<div class="mb-3"> 
+			<label class="form-label">Nombre Atomique</label>
+			<input [(ngModel)]="elementAAjouter.nombre_atomique" type="text" class="form-control" placeholder="6 , 29 ,..." name="nombre_atomique">
+		</div>
+		<div class="mb-3">
+			<label class="form-label">Nom</label>
+			<input [(ngModel)]="elementAAjouter.nom" type="text" class="form-control" placeholder="Carbone , Cuivre ,..." name="nom">
+		</div>
+		<div class="mb-3"> 
+			<label class="form-label">Symbole</label>
+			<input [(ngModel)]="elementAAjouter.symbole" type="text" class="form-control" placeholder="C , Cu ,..." name="symbole">
+		</div>
+		<div class="mb-3">
+			<label class="form-label">Masse Atomique</label>
+			<input [(ngModel)]="elementAAjouter.masse_atomique" type="text" class="form-control" placeholder="12 , 63.5 ,..." name="masse_atomique">
+		</div>
+		<button type="submit" class="btn btn-success">Ajouter</button>
+	</form>
+</div>

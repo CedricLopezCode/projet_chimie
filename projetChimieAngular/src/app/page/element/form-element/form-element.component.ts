@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Element } from '../element.model';
+import { ElementService } from '../element.service';
 
 @Component({
   selector: 'form_element',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormElementComponent implements OnInit {
 
-  constructor() { }
+  elementAAjouter = new Element();
+
+  constructor(private serviceElement: ElementService) { }
 
   ngOnInit(): void {
+  }
+  onSubmit(): void {
+    this.serviceElement.createElement(this.elementAAjouter).subscribe(
+      data => {
+        this.elementAAjouter = new Element();
+        window.location.reload();
+      }
+    );
   }
 
 }
