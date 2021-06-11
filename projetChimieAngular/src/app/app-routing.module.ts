@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'atomes', component: ElementComponent },
   { path: 'molecule', component: MoleculeComponent },
-  { path: 'retrosynthese', component: RetrosyntheseComponent },
+  { path: 'retrosynthese/:fonc', component: RetrosyntheseComponent }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -16,7 +16,7 @@ import { FormMoleculeComponent } from './page/molecule/form-molecule/form-molecu
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
-import { InfoMoleculeComponent } from './info-molecule/info-molecule.component';
+import { InfoMoleculeComponent } from './page/molecule/info-molecule/info-molecule.component';
 
 @NgModule({
   declarations: [

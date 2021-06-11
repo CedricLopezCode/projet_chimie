@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'retrosynthese',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RetrosyntheseComponent implements OnInit {
 
-  constructor() { }
+  fonc!: String;
+
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+    this.fonc = this.route.snapshot.params.fonc;
+    console.log(this.fonc);
+    //window.location.reload();
   }
+
+  changFonc(fonc: String, value: any): void{
+    console.log(fonc);
+    this.router.navigate(['changFonc', fonc]);
+  }
+  
 
 }

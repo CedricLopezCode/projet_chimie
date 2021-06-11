@@ -1,1 +1,41 @@
-<h1 class="titre_page">Rétrosynthèse</h1>
+<nav class="navretro flex-row-center">
+    <a routerLink="/retrosynthese/alcane"    class="flex-row-center">Alcane</a>
+    <a routerLink="/retrosynthese/alcene"    class="flex-row-center">Alcène</a>
+    <a routerLink="/retrosynthese/alcyne"    class="flex-row-center">Alcyne</a>
+    <a routerLink="/retrosynthese/alcool"    class="flex-row-center">Alcool</a>
+    <a routerLink="/retrosynthese/aldehyde"  class="flex-row-center">Aldéhyde</a>
+    <a routerLink="/retrosynthese/cetone"    class="flex-row-center">Cétone</a>
+    <a routerLink="/retrosynthese/acide"     class="flex-row-center">Acide</a>
+    <a routerLink="/retrosynthese/amine"     class="flex-row-center">Amine</a>
+</nav>
+
+
+<div [ngSwitch]="fonc">
+    <div *ngSwitchCase="'alcane'">
+        <img src="assets/img/molorga.png">
+    </div>
+    <div *ngSwitchCase="'alcene'">
+        <img src="assets/img/atom5.png">
+    </div>
+    <div *ngSwitchCase="'alcyne'">
+        <img src="assets/img/37218.png">
+    </div>
+    <div *ngSwitchCase="'alcool'">
+        <img src="assets/img/Home_25979.png">
+    </div>
+    <div *ngSwitchCase="'alcene'">
+        <img src="assets/img/java_22523.png">
+    </div>
+    <div *ngSwitchCase="'aldehyde'">
+        <img src="assets/img/atom5.png">
+    </div>
+    <div *ngSwitchCase="'cetone'">
+        <img src="assets/img/atom5.png">
+    </div>
+    <div *ngSwitchCase="'acide'">
+        <img src="assets/img/atom5.png">
+    </div>
+    <div *ngSwitchCase="'amine'">
+        <img src="assets/img/atom5.png">
+    </div>
+</div>
