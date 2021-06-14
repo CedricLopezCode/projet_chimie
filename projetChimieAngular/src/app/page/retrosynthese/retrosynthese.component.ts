@@ -14,13 +14,13 @@ export class RetrosyntheseComponent implements OnInit {
 
   ngOnInit(): void {
     this.fonc = this.route.snapshot.params.fonc;
-    console.log(this.fonc);
+    console.log("on init: " + this.fonc);
     //window.location.reload();
   }
 
-  changFonc(fonc: String, value: any): void{
-    console.log(fonc);
-    this.router.navigate(['changFonc', fonc]);
+  changRetro(nvfonc: String): void{
+    this.fonc = nvfonc;
+    this.router.navigate(['retrosynthese', nvfonc]);
   }
   
 

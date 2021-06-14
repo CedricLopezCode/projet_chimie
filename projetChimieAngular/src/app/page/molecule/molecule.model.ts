@@ -11,8 +11,8 @@ export class Molecule {
 	numC_alcyne !: number;
 	alcool !: boolean;
 	numC_alcool !: number;
-	aldehide !: boolean;
-	numC_aldehide !: number;
+	aldehyde !: boolean;
+	numC_aldehyde !: number;
 	cetone !: boolean;
 	numC_cetone !: number;
 	acide !: boolean;

@@ -1,41 +1,54 @@
-<nav class="navretro flex-row-center">
-    <a routerLink="/retrosynthese/alcane"    class="flex-row-center">Alcane</a>
-    <a routerLink="/retrosynthese/alcene"    class="flex-row-center">Alcène</a>
-    <a routerLink="/retrosynthese/alcyne"    class="flex-row-center">Alcyne</a>
-    <a routerLink="/retrosynthese/alcool"    class="flex-row-center">Alcool</a>
-    <a routerLink="/retrosynthese/aldehyde"  class="flex-row-center">Aldéhyde</a>
-    <a routerLink="/retrosynthese/cetone"    class="flex-row-center">Cétone</a>
-    <a routerLink="/retrosynthese/acide"     class="flex-row-center">Acide</a>
-    <a routerLink="/retrosynthese/amine"     class="flex-row-center">Amine</a>
+
+<nav id="nav_retro" class="flex-row-space-around">
+    <button class="btn btn-info" (click)="changRetro('alcane')">Alcane</button>
+    <button class="btn btn-info" (click)="changRetro('alcene')">Alcène</button>
+    <button class="btn btn-info" (click)="changRetro('alcyne')">Alcyne</button>
+    <button class="btn btn-info" (click)="changRetro('alcool')">Alcool</button>
+    <button class="btn btn-info" (click)="changRetro('aldehyde')">Aldéhyde</button>
+    <button class="btn btn-info" (click)="changRetro('cetone')">Cétone</button>
+    <button class="btn btn-info" (click)="changRetro('acide')">Acide</button>
+    <button class="btn btn-info" (click)="changRetro('amine')">Amine</button>
 </nav>
 
 
-<div [ngSwitch]="fonc">
-    <div *ngSwitchCase="'alcane'">
-        <img src="assets/img/molorga.png">
+<div [ngSwitch]="fonc" id="cheminsRetro">
+    <div class="flex-col-center" *ngSwitchCase="'alcane'">
+        <img src="assets/img/retro_alcane.gif">
+        <img src="assets/img/retro_alcane_alcene_alcool.gif">
+        <img src="assets/img/retro_tous_CH.gif">
     </div>
-    <div *ngSwitchCase="'alcene'">
-        <img src="assets/img/atom5.png">
+    <div class="flex-col-center" *ngSwitchCase="'alcene'">
+        <img src="assets/img/retro_alcene.gif">
+        <img src="assets/img/retro_alcane_alcene_alcool.gif">
+        <img src="assets/img/retro_alcene_ou_amine.gif">
+        <img src="assets/img/retro_alcene2.gif">
+        <img src="assets/img/retro_tous_CH.gif">
     </div>
-    <div *ngSwitchCase="'alcyne'">
-        <img src="assets/img/37218.png">
+    <div class="flex-col-center" *ngSwitchCase="'alcyne'">
+        <img src="assets/img/retro_alcyne_alcool.gif">
+        <img src="assets/img/retro_tous_CH.gif">
     </div>
-    <div *ngSwitchCase="'alcool'">
-        <img src="assets/img/Home_25979.png">
+    <div class="flex-col-center" *ngSwitchCase="'alcool'">
+        <img src="assets/img/retro_alcool.gif">
+        <img src="assets/img/retro_alcane_alcene_alcool.gif">
+        <img src="assets/img/retro_alcool2.gif">
+        <img src="assets/img/retro_alcool3.gif">
+        <img src="assets/img/retro_alcyne_alcool.gif">
+        <img src="assets/img/retro_alcane_alcene_alcool.gif">
+        <img src="assets/img/retro_tous_O.gif">
     </div>
-    <div *ngSwitchCase="'alcene'">
-        <img src="assets/img/java_22523.png">
+    <div class="flex-col-center" *ngSwitchCase="'aldehyde'">
+        <img src="assets/img/retro_tous_O.gif">
+        <img src="assets/img/retro_alcane_alcene_alcool.gif">
     </div>
-    <div *ngSwitchCase="'aldehyde'">
-        <img src="assets/img/atom5.png">
+    <div class="flex-col-center" *ngSwitchCase="'cetone'">
+        <img src="assets/img/retro_tous_O.gif">
+        <img src="assets/img/retro_cetone.gif">
     </div>
-    <div *ngSwitchCase="'cetone'">
-        <img src="assets/img/atom5.png">
+    <div class="flex-col-center" *ngSwitchCase="'acide'">
+        <img src="assets/img/retro_tous_O.gif">
     </div>
-    <div *ngSwitchCase="'acide'">
-        <img src="assets/img/atom5.png">
-    </div>
-    <div *ngSwitchCase="'amine'">
-        <img src="assets/img/atom5.png">
+    <div class="flex-col-center" *ngSwitchCase="'amine'">
+        <img src="assets/img/retro_alcene_ou_amine.gif">
     </div>
 </div>

@@ -1,6 +1,6 @@
-.section_form{
+/*.section_form{
     display: inline;
-}
+}*/
 #formulaire_molecule{
     width: 80%;
     margin: auto;
@@ -11,7 +11,21 @@
 #formulaire_molecule input{
     margin-right: 1em;
 }
-#setion_formule_brute input{
+#section_formule_brute input{
     margin-right: 2em;
     width: 100px;
+}
+#section_formule_brute select{
+    margin-right: 2em;
+    width: 100px;
+}
+#section_fonctions{
+    margin-top: 20px;
+}
+#section_fonctions select{
+    margin-right: 2em;
+    width: 100px;
+}
+.largeur-fixe{
+    width: 6em;
 }

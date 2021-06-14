@@ -18,6 +18,11 @@ body{
 	display: flex;
 	flex-direction: row;
 }
+.flex-row-space-around{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
 .flex-row-center{
 	display: flex;
 	flex-direction: row;
@@ -26,6 +31,11 @@ body{
 .flex-col{
 	display: flex;
 	flex-direction: column;
+}
+.flex-col-space-around{
+	display: flex;
+	flex-direction: col;
+	justify-content: space-around;
 }
 .flex-col-center{
 	display: flex;

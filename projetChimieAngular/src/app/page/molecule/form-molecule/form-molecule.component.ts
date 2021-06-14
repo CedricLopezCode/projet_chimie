@@ -23,7 +23,7 @@ export class FormMoleculeComponent implements OnInit {
   alcene_verif = new FormControl('');
   alcyne_verif = new FormControl('');
   alcool_verif = new FormControl('');
-  aldehide_verif = new FormControl('');
+  aldehyde_verif = new FormControl('');
   cetone_verif = new FormControl('');
   acide_verif = new FormControl('');
   amine_verif = new FormControl('');
@@ -42,7 +42,7 @@ export class FormMoleculeComponent implements OnInit {
     this.nombre_de_H += this.moleculeAAnalyser.nb_N;
     if(this.alcene_verif){this.nombre_de_H -= 2};
     if(this.alcyne_verif){this.nombre_de_H -= 2};
-    if(this.aldehide_verif){this.nombre_de_H -= 2};
+    if(this.aldehyde_verif){this.nombre_de_H -= 2};
     if(this.cetone_verif){this.nombre_de_H -= 2};
     if(this.acide_verif){this.nombre_de_H -= 2};
     return this.nombre_de_H;
