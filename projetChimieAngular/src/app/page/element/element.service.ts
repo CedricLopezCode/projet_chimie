@@ -21,5 +21,10 @@ export class ElementService {
     console.log(elementAAjouter);
     return this.http.post(`${this.urlSite}/ajoutElement`, elementAAjouter);
   }
+   /*DDDD de CRUD */
+   deleteElement(idElementASupprimer: number): Observable<any>{
+    console.log("Service "+idElementASupprimer);
+    return this.http.delete(`${this.urlSite}/deleteElement/${idElementASupprimer}`);
+  }
 
 } //Fin Service

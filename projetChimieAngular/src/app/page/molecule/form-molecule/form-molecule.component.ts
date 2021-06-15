@@ -27,7 +27,7 @@ export class FormMoleculeComponent implements OnInit {
   cetone_verif = new FormControl('');
   acide_verif = new FormControl('');
   amine_verif = new FormControl('');
-
+  nb_C = Number(this.nb_C_verif.value);
   constructor(private serviceMol: MoleculeService ) { }
 
   ngOnInit(): void {
@@ -38,13 +38,14 @@ export class FormMoleculeComponent implements OnInit {
     )
   }
   calcul_nombre_de_H() : number{
-    this.nombre_de_H = 2 * this.moleculeAAnalyser.nb_C + 2;
+   /* this.nombre_de_H = 2 * this.moleculeAAnalyser.nb_C + 2;
     this.nombre_de_H += this.moleculeAAnalyser.nb_N;
     if(this.alcene_verif){this.nombre_de_H -= 2};
     if(this.alcyne_verif){this.nombre_de_H -= 2};
     if(this.aldehyde_verif){this.nombre_de_H -= 2};
     if(this.cetone_verif){this.nombre_de_H -= 2};
-    if(this.acide_verif){this.nombre_de_H -= 2};
+    if(this.acide_verif){this.nombre_de_H -= 2};*/
+    console.log("tes");
     return this.nombre_de_H;
   }
 

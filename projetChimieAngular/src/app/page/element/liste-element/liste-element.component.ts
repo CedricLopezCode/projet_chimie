@@ -18,5 +18,14 @@ export class ListeElementComponent implements OnInit {
       data => {this.listeElements = data;}
     );
   }
+  deleteElement(id: number, value: any): void{
+    console.log("ts "+id);
+    this.serviceElement.deleteElement(id).subscribe(
+      data => {
+        console.log(data);
+       window.location.reload();
+      }
+    );
+  }
 
 }

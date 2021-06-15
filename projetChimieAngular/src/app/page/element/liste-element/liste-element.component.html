@@ -3,15 +3,22 @@
     <table class="listeRead">
         <tr>
             <th>Numéro Atomique</th>
-            <th>Symbole</th>
             <th>Nom</th>
+            <th>Symbole</th>
             <th>Masse Molaire Atomique</th>
+            <th>Suppression</th>
         </tr>
         <tr *ngFor="let element of listeElements">
             <td>{{element.nombre_atomique}}</td>
             <td>{{element.nom}}</td>
             <td>{{element.symbole}}</td>
             <td>{{element.masse_atomique}}</td>
+            <td>
+                <button class="btn btn-danger" (click)="deleteElement(element.nombre_atomique, element)">
+                <!-- data-bs-toggle="modal" data-bs-target="#ModalSuppElement" attr ="data-bs-target='#ModalSuppElement'+${element.nombre_atomique}"-->
+                        <img src="assets/img/tete_de_mort.png">
+                </button>
+            </td>
         </tr>
     </table>
 </div>

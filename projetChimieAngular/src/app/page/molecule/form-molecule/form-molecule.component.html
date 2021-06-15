@@ -38,9 +38,9 @@
                     Alcene
                 </div>
                 <div *ngIf="alcene_verif.value">
-                    sur le C n°
+                    sur le C n° {{nb_C}}
                     <select [(ngModel)]="moleculeAAnalyser.alcene" class="form-select" name="numC_alcene">
-                        <option *ngFor="let c of nb_C_verif.value;" value="c.index">{{c.index}}</option>
+                        <option *ngFor="let c of comptage" value="c.index">{{c}}</option>
                     </select>
                 </div>
             </div>
