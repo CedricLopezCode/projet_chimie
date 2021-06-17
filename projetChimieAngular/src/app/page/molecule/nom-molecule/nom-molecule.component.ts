@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Molecule } from '../molecule.model';
 
 @Component({
-  selector: 'info_molecule',
-  templateUrl: './info-molecule.component.html',
-  styleUrls: ['./info-molecule.component.css']
+  selector: 'nomMolecule',
+  templateUrl: './nom-molecule.component.html',
+  styleUrls: ['./nom-molecule.component.css']
 })
-export class InfoMoleculeComponent implements OnInit {
+export class NomMoleculeComponent implements OnInit {
 
   nom_complet!: String;
   radical = ["inconnu", "méth", "éth", "prop","but", "pent", "hex", "hept","oct", "non", "déc", "undéc","dodéc", "tridéc", "tétradéc", "pentadéc","hexadéc", "heptadéc", "ocatdéc", "nonadéc","icos", "hénicos", "docos", "tricos"];
@@ -31,5 +31,6 @@ export class InfoMoleculeComponent implements OnInit {
     if(moleculeAAnalyser.acide){this.nom_complet = "acide "+ this.nom_complet;}
     return this.nom_complet;
   }
+
 
 }

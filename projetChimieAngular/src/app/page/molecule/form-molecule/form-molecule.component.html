@@ -6,59 +6,64 @@
                 <!-- INPUT C -->
                 <label class="form-label">C</label>
                <!-- <input [(ngModel)]="moleculeAAnalyser.nb_C" type="number" class="form-control" [formControl]="nb_C">-->
-                <select [(ngModel)]="moleculeAAnalyser.nb_C" class="form-select" [formControl]="nb_C_verif" >
+                <select [(ngModel)]="nb_C" class="form-select" [formControl]="nb_C_verif" (change)="maj()">
                     <option *ngFor="let c of comptage" [ngValue]="c">{{c}}</option>
                 </select>
                  
                 <!-- INPUT H -->
                 <label class="form-label">H</label>
-                <input [(ngModel)]="this.nombre_de_H" type="number" class="form-control" [formControl]="nb_H_verif" value="calcul_nombre_de_H()" readonly>
+                <input [(ngModel)]="nb_H" type="number" class="form-control" [formControl]="nb_H_verif" value="this.nb_H" readonly>
                
                 <!-- INPUT O -->
                 <label class="form-label">O</label>
-               <select [(ngModel)]="moleculeAAnalyser.nb_O" class="form-select" [formControl]="nb_O_verif">
+               <select [(ngModel)]="nb_O" class="form-select" [formControl]="nb_O_verif" (change)="maj()">
                     <option [ngValue]="0" selected>0</option>
-                    <option *ngFor="let n of comptage;" value="n">{{n}}</option>
+                    <option *ngFor="let o of comptage" [ngValue]="o">{{o}}</option>
                 </select>
 
                 <!-- INPUT N -->
                 <label class="form-label">N</label>
                <!-- <input [(ngModel)]="moleculeAAnalyser.nb_N" type="number" class="form-control"  [formControl]="nb_N_verif">-->
-               <select [(ngModel)]="moleculeAAnalyser.nb_N" class="form-select" [formControl]="nb_N_verif">
+               <select [(ngModel)]="nb_N" class="form-select" [formControl]="nb_N_verif" (change)="maj()">
                     <option [ngValue]="0" selected>0</option>
-                    <option *ngFor="let n of comptage;" value="n">{{n}}</option>
+                    <option *ngFor="let n of comptage" [ngValue]="n">{{n}}</option>
                 </select>
             </div>
         </section>
-        <section class="flex-row section_form" id="section_fonctions"> <!--  FONTIONS CHIMIQUES-->
+        <section class="flex-row section_form" id="section_fonctions"> <!--FONTIONS CHIMIQUES-->
             <!-- Alcene -->
             <div class="form-check form-check-inline flex-col-center largeur-fixe">
                 <div>
-                    <input [(ngModel)]="moleculeAAnalyser.alcene" class="form-check-input" type="checkbox" value="" [formControl]="alcene_verif">
+                    <input [(ngModel)]="moleculeAAnalyser.alcene" class="form-check-input" type="checkbox" value="" [formControl]="alcene_verif" (change)="calcul_nombre_de_H()">
                     Alcene
                 </div>
                 <div *ngIf="alcene_verif.value">
                     sur le C n° {{nb_C}}
                     <select [(ngModel)]="moleculeAAnalyser.alcene" class="form-select" name="numC_alcene">
-                        <option *ngFor="let c of comptage" value="c.index">{{c}}</option>
+                        <option *ngFor="let c of comptage" value="c.index">
+                            <div *ngIf="c <= nb_C">{{c}}</div>
+                        </option>
                     </select>
-                </div>
+                </div>  
             </div>
+            <!-- *ngIf="c <= nb_C"  -->
             <!-- Alcyne -->
             <div class="form-check form-check-inline flex-col-center largeur-fixe">
                 <div>
-                    <input [(ngModel)]="moleculeAAnalyser.alcyne" class="form-check-input" type="checkbox" value="" [formControl]="alcyne_verif">
+                    <input [(ngModel)]="moleculeAAnalyser.alcyne" class="form-check-input" type="checkbox" value="" [formControl]="alcyne_verif" (change)="calcul_nombre_de_H()">
                     Alcyne
                 </div>
                 <div *ngIf="alcyne_verif.value">
                     sur le C n°
                     <select [(ngModel)]="moleculeAAnalyser.alcyne" class="form-select" name="numC_alcyne">
-                        <option *ngFor="let c of nb_C_verif.value;" value="c.index">{{c.index}}</option>
+                        <option *ngFor="let c of comptage" value="c.index">
+                            <div *ngIf="c <= nb_C">{{c}}</div>
+                        </option>
                     </select>
                 </div>
             </div>
            <!-- Alcool -->
-           <div class="form-check form-check-inline flex-col-center largeur-fixe">
+           <div class="form-check form-check-inline flex-col-center largeur-fixe" *ngIf="nb_O_verif.value >= 1">
                <div>
                     <input [(ngModel)]="moleculeAAnalyser.alcool" class="form-check-input" type="checkbox" value="" [formControl]="alcool_verif">
                     Alcool
@@ -66,51 +71,58 @@
                 <div *ngIf="alcool_verif.value">
                     sur le C n°
                     <select [(ngModel)]="moleculeAAnalyser.alcool" class="form-select" name="numC_alcool">
-                        <option *ngFor="let c of nb_C_verif.value;" value="c.index">{{c.index}}</option>
+                        <option *ngFor="let c of comptage" value="c.index">
+                            <div *ngIf="c <= nb_C">{{c}}</div>
+                        </option>
                     </select>
                 </div>
             </div>
             <!-- Aldéhyde -->
-            <div class="form-check form-check-inline flex-col-center largeur-fixe">
+            <div class="form-check form-check-inline flex-col-center largeur-fixe" *ngIf="nb_O_verif.value >= 1">
                 <div>
-                    <input [(ngModel)]="moleculeAAnalyser.aldehyde" class="form-check-input" type="checkbox" value="" [formControl]="aldehyde_verif">
+                    <input [(ngModel)]="moleculeAAnalyser.aldehyde" class="form-check-input" type="checkbox" value="" [formControl]="aldehyde_verif" (change)="calcul_nombre_de_H()">
                     Aldehyde
                 </div>
                 <div *ngIf="aldehyde_verif.value">
                     sur le C n°
                     <select [(ngModel)]="moleculeAAnalyser.aldehyde" class="form-select" name="numC_aldehyde">
-                        <option *ngFor="let c of nb_C_verif.value;" value="c.index">{{c.index}}</option>
+                        <option *ngFor="let c of comptage" value="c.index">
+                            <div *ngIf="c <= nb_C">{{c}}</div>
+                        </option>
                     </select>
                 </div>
             </div>
             <!-- Cétone -->
-            <div class="form-check form-check-inline flex-col-center largeur-fixe">
+            <div class="form-check form-check-inline flex-col-center largeur-fixe" *ngIf="nb_O_verif.value >= 1">
                 <div>
-                    <input [(ngModel)]="moleculeAAnalyser.cetone" class="form-check-input" type="checkbox" value="" [formControl]="cetone_verif">
+                    <input [(ngModel)]="moleculeAAnalyser.cetone" class="form-check-input" type="checkbox" value="" [formControl]="cetone_verif" (change)="calcul_nombre_de_H()">
                     Cétone
                 </div>
                 <div *ngIf="cetone_verif.value">
                     sur le C n°
                     <select [(ngModel)]="moleculeAAnalyser.cetone" class="form-select" name="numC_cetone">
-                        <option *ngFor="let c of nb_C_verif.value;" value="c.index">{{c.index}}</option>
+                        <option *ngFor="let c of comptage" value="c.index">
+                            <div *ngIf="c <= nb_C">{{c}}</div>
+                        </option>
                     </select>
                 </div>
             </div>
             <!-- Acide -->
-            <div class="form-check form-check-inline flex-col-center largeur-fixe">
+            <div class="form-check form-check-inline flex-col-center largeur-fixe" *ngIf="nb_O_verif.value >= 2">
                 <div>
-                    <input [(ngModel)]="moleculeAAnalyser.acide" class="form-check-input" type="checkbox" value="" [formControl]="acide_verif">
+                    <input [(ngModel)]="moleculeAAnalyser.acide" class="form-check-input" type="checkbox" value="" [formControl]="acide_verif" (change)="calcul_nombre_de_H()">
                     Acide
                 </div>
-                <div *ngIf="acide_verif.value">
-                    sur le C n°
-                    <select [(ngModel)]="moleculeAAnalyser.acide" class="form-select" name="numC_acide">
-                        <option *ngFor="let c of nb_C_verif.value;" value="c.index">{{c.index}}</option>
+                <input type="hidden" class="form-control" [formControl]="acide_verif" value="1" name="numC_acide" readonly>
+               <!--<div *ngIf="acide_verif.value">
+                    sur le C n° 1
+                    <select type="hidden" [(ngModel)]="moleculeAAnalyser.acide" class="form-select" name="numC_acide">
+                        <option value="1" selected>1</option>
                     </select>
-                </div>
+                </div>--> 
             </div>
             <!-- Amine -->
-            <div class="form-check form-check-inline flex-col-center largeur-fixe">
+            <div class="form-check form-check-inline flex-col-center largeur-fixe" *ngIf="nb_N_verif.value > 0">
                 <div>
                     <input [(ngModel)]="moleculeAAnalyser.amine" class="form-check-input" type="checkbox" value="" [formControl]="amine_verif">
                     Amine
@@ -118,16 +130,46 @@
                 <div *ngIf="amine_verif.value">
                     sur le C n°
                     <select [(ngModel)]="moleculeAAnalyser.amine" class="form-select" name="numC_amine">
-                        <option *ngFor="let c of nb_C_verif.value;" value="c.index">{{c.index}}</option>
+                         <option *ngFor="let c of comptage" value="c.index">
+                            <div *ngIf="c <= nb_C">{{c}}</div>
+                        </option>
                     </select>
                 </div>
             </div>
         </section>
         <!-- Submit -->
-        <button type="submit" class="btn btn-success">Ajouter</button>
+        <button type="submit" class="btn btn-success">Créer</button>
 	</form>
 </div>
 
+<div class="flex-row" id="table_molecule">
+    <table class="listeRead">
+        <tr>
+            <th>Nom </th>
+            <th>Formule Brute DM</th>
+            <th>Formule Brute FC</th>
+            <th>Masse Molaire DM</th>
+            <th>Masse Molaire FC</th>
+        </tr>
+        <tr class="chang_font">
+            <td>{{nom_complet}}</td>
+            <td> 
+                C<sub>{{nb_C_verif.value}}</sub>
+                <span *ngIf="this.nb_H > 0">
+                    H<sub>{{this.nb_H}}</sub>
+                </span>
+                <span *ngIf="this.nb_O > 0">
+                    O<sub>{{nb_O}}</sub>
+                </span>
+                <span *ngIf="this.nb_N > 0">
+                    N<sub>{{nb_N}}</sub>
+                </span>
+            </td>
+            <td>{{12 * nb_C + 1 * nb_H + 16 * nb_O + 14 * nb_N}}</td>
+            <td>{{masse_molaire}}</td>
+        </tr>
+    </table>
+</div>
 
 
 <!--

@@ -7,3 +7,12 @@ form_element{
 .img_elem img{
     margin: 30px;
 }
+.imagClick{
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.case_tab{
+    margin: 20px;
+    height: 21%;
+}

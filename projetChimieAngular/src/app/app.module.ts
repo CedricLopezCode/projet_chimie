@@ -17,7 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { InfoMoleculeComponent } from './page/molecule/info-molecule/info-molecule.component';
-import { DessinMoleculeComponent } from './molecule/dessin-molecule/dessin-molecule.component';
+import { NomMoleculeComponent } from './page/molecule/nom-molecule/nom-molecule.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,7 @@ import { DessinMoleculeComponent } from './molecule/dessin-molecule/dessin-molec
     FormElementComponent,
     FormMoleculeComponent,
     InfoMoleculeComponent,
-    DessinMoleculeComponent
+    NomMoleculeComponent,
   ],
   imports: [
     BrowserModule,

@@ -29,3 +29,7 @@
 .largeur-fixe{
     width: 6em;
 }
+#table_molecule{
+    width: 80%;
+    margin: auto;
+}

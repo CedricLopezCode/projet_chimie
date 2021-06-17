@@ -80,6 +80,14 @@ app-root{
 	padding: 30px;
 	background: midnightblue;
 }
+.nomMol{
+	margin: 5em 10em;
+	padding: 5em;
+	width: 80%;
+	background: midnightblue;
+	text-align: center;
+	border: solid 3px white;
+}
 .titre_page{
 	margin-top: 20px;
 	text-align: center;
