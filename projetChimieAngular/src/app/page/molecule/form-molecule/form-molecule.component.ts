@@ -33,7 +33,9 @@ export class FormMoleculeComponent implements OnInit {
   amine_verif = new FormControl('');
   nb_C = Number(this.nb_C_verif.value); 
   nb_O = Number(this.nb_O_verif.value);
+  nb_O_used = Number(this.moleculeAAnalyser.aldehyde) + Number(this.moleculeAAnalyser.alcool) + 2 * Number(this.moleculeAAnalyser.acide);
   nb_N = Number(this.nb_N_verif.value);
+  nb_N_used = Number(this.moleculeAAnalyser.amine);
   nb_H = Number(this.nombre_de_H);
 
   constructor(private serviceMol: MoleculeService) { }
@@ -46,7 +48,10 @@ export class FormMoleculeComponent implements OnInit {
     this.nb_O = 0;
     this.nb_N = 0;
     this.nb_H = 4;
-    console.log(this.nb_H);
+    this.formule_brute_string = "CH4";
+    this.nom_complet = "méthane";
+    this.masse_molaire = 16;
+   // console.log(this.nb_H);
   }
 
   onSubmit(): void{
@@ -63,7 +68,12 @@ export class FormMoleculeComponent implements OnInit {
     this.maj_Nb_from_FC();
     this.formule_brut();
     this.calcul_MM();
-  this.genererNom();
+    this.genererNom();
+    console.log("verif " + this.moleculeAAnalyser.aldehyde);
+    console.log("verif value " + this.moleculeAAnalyser.aldehyde);
+    console.log("verif number " + Number(this.aldehyde_verif.value));
+    this.nb_O_used = Number(this.moleculeAAnalyser.aldehyde) + Number(this.moleculeAAnalyser.alcool) + 2 * Number(this.moleculeAAnalyser.acide);
+    this.nb_N_used = Number(this.moleculeAAnalyser.amine);
   }
 
   maj_Nb_from_FC(){
@@ -89,42 +99,37 @@ export class FormMoleculeComponent implements OnInit {
   formule_brut(): String{
     this.formule_brute_string = ""; 
     this.formule_brute_string += "C"+this.nb_C;
-    if(this.nb_H >0){this.formule_brute_string += "H"+this.nb_H;}
-    console.log("H= " +this.formule_brute_string);
-    if(this.nb_O >0){this.formule_brute_string += "O"+this.nb_O;}
-    if(this.nb_N >0){this.formule_brute_string += "N"+this.nb_N;}
-    this.nom_complet = this.formule_brute_string;
+    if(this.nb_H > 0){this.formule_brute_string += "H"+this.nb_H;}
+   // console.log("H= " +this.formule_brute_string);
+    if(this.nb_O > 0){this.formule_brute_string += "O"+this.nb_O;}
+    if(this.nb_N > 0){this.formule_brute_string += "N"+this.nb_N;}
     return this.formule_brute_string;
   }
 
   calcul_MM(): number{
-    console.log("debut MM = " +this.masse_molaire);
+   // console.log("debut MM = " +this.masse_molaire);
     this.masse_molaire = 0;
     this.masse_molaire += 12 * this.nb_C;
     this.masse_molaire += 1 * this.nb_H;
     this.masse_molaire += 16 * this.nb_O;
     this.masse_molaire += 14 * this.nb_N;
-    console.log("fin MM= " +this.masse_molaire);
+   // console.log("fin MM= " +this.masse_molaire);
     return this.masse_molaire;
   }
 
-  genererNom(): String{console.log("début nom " +this.nom_complet);
-    this.nom_complet = this.radical[this.nb_C];  console.log("début rad " +this.nom_complet);
-    console.log("verif alcene " +this.alcene_verif);
-    console.log("verif alcene value " +this.alcene_verif.value);
-    console.log("verif moleculeAAnalyser " +this.moleculeAAnalyser);
-    console.log("verif moleculeAAnalyser num " +this.moleculeAAnalyser.numC_alcene);
-    if(this.alcene_verif.value){this.nom_complet += "-"+this.moleculeAAnalyser.numC_alcene+"-èn"; console.log("if ene " +this.nom_complet);} 
-    else if(this.alcyne_verif.value){this.nom_complet += "-"+this.moleculeAAnalyser.numC_alcyne+"-yn"; console.log("else if yne " +this.nom_complet);} 
-    else{this.nom_complet += "an";console.log("else an " +this.nom_complet);} console.log("apres rad " +this.nom_complet);
+  genererNom(): String{
+    this.nom_complet = this.radical[this.nb_C];
+    if(this.alcene_verif.value){this.nom_complet += "-"+this.moleculeAAnalyser.alcene+"-èn";} 
+    else if(this.alcyne_verif.value){this.nom_complet += "-"+this.moleculeAAnalyser.alcyne+"-yn";} 
+    else{this.nom_complet += "an";} 
 
-    if(this.acide_verif.value){this.nom_complet += "oïque"; console.log("if acide " +this.nom_complet);}
-    else if(this.aldehyde_verif.value){this.nom_complet += "al";console.log("else if al " +this.nom_complet);}
-    else if(this.cetone_verif.value){this.nom_complet += "-"+this.moleculeAAnalyser.numC_cetone+"-one";console.log("else if cetone " +this.nom_complet);}
-    else if(this.alcool_verif.value){this.nom_complet += "-"+this.moleculeAAnalyser.numC_alcool+"-ol";console.log("else if alcool " +this.nom_complet);}
-    else if(this.amine_verif.value){this.nom_complet += "-"+this.moleculeAAnalyser.numC_amine+"-amine";console.log("else if amine " +this.nom_complet);}
-    else {this.nom_complet += "e";console.log("else e " +this.nom_complet);}
-    if(this.acide_verif.value){this.nom_complet = "acide "+ this.nom_complet;console.log("if acide " +this.nom_complet);} console.log("fin " +this.nom_complet);
+    if(this.acide_verif.value){this.nom_complet += "oïque";}
+    else if(this.aldehyde_verif.value){this.nom_complet += "al";}
+    else if(this.cetone_verif.value){this.nom_complet += "-"+this.moleculeAAnalyser.cetone+"-one";}
+    else if(this.alcool_verif.value){this.nom_complet += "-"+this.moleculeAAnalyser.alcool+"-ol";}
+    else if(this.amine_verif.value){this.nom_complet += "-"+this.moleculeAAnalyser.amine+"-amine";}
+    else {this.nom_complet += "e";}
+    if(this.acide_verif.value){this.nom_complet = "acide "+ this.nom_complet;}
     return this.nom_complet;
   }
 }
