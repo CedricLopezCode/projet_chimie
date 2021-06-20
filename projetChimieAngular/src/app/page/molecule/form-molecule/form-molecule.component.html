@@ -15,14 +15,14 @@
                 <input [(ngModel)]="nb_H" type="number" class="form-control" [ngClass]="{'rouge': nb_H < 0}" [formControl]="nb_H_verif" value="this.nb_H" readonly>
                
                 <!-- INPUT O -->
-                <label class="form-label">O</label>O{{nb_O}}  O_used{{nb_O_used}} 
+                <label class="form-label">O</label>  utilisés: {{nb_O_used}}  / 
                <select [(ngModel)]="nb_O" class="form-select" [ngClass]="{'rouge': nb_O != nb_O_used}" [formControl]="nb_O_verif" (change)="maj()">
                     <option [ngValue]="0" selected>0</option>
                     <option *ngFor="let o of comptage" [ngValue]="o">{{o}}</option>
                 </select>
 
                 <!-- INPUT N -->
-                <label class="form-label">N</label>
+                <label class="form-label">N</label>  utilisés: {{nb_N_used}} /   
                <!-- <input [(ngModel)]="moleculeAAnalyser.nb_N" type="number" class="form-control"  [formControl]="nb_N_verif">-->
                <select [(ngModel)]="nb_N" class="form-select" [ngClass]="{'rouge': nb_N != nb_N_used}" [formControl]="nb_N_verif" (change)="maj()">
                     <option [ngValue]="0" selected>0</option>
@@ -126,17 +126,17 @@
             </div>
         </section>
         <!-- Submit -->
-        <button type="submit" class="btn btn-success">Créer</button>
+        <button type="submit" class="btn btn-success">Sauvegarder</button>
 	</form>
 </div>
 
 <div class="flex-row" id="table_molecule">
     <table class="listeRead">
         <tr>
-            <th>Formule Brute DM</th>
-            <th>Masse Molaire DM</th>
-            <th>Formule Brute FC</th>
-            <th>Masse Molaire FC</th>
+            <th>Formule Brute Front</th>
+            <th>Masse Molaire Front</th>
+            <th>Formule Brute Back</th>
+            <th>Masse Molaire Back</th>
             <th>Nom </th>
         </tr>
         <tr class="chang_font">
