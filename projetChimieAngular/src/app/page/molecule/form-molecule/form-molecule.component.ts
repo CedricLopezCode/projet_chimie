@@ -131,7 +131,6 @@ export class FormMoleculeComponent implements OnInit {
     else{this.nom_complet += "an";} 
 
     //    Partie fonction principale (suffixe)
-
     if(this.acide_verif.value){
       this.nom_complet += "oïque";
       this.fonction_principale = "acide";
@@ -157,21 +156,25 @@ export class FormMoleculeComponent implements OnInit {
       this.fonction_principale = "aucune";
     }
     this.suffixe = false;
-
+/*
     //    Partie fonctions secondaires (prefixe) sans répétition (sans break)
-    /*
+    console.log(this.fonction_principale);
     switch (this.fonction_principale){ 
       case "acide":     
-          if(this.aldehyde_verif.value){this.nom_complet =+ ""+"oxo";}
+        //  if(this.aldehyde_verif.value){this.nom_complet =+ ""+"oxo";}
+        console.log("acide principale");
          
       case "aldehyde":  
-          if(this.cetone_verif.value){this.nom_complet =+ this.moleculeAAnalyser.cetone+"-oxo";}
+         // if(this.cetone_verif.value){this.nom_complet =+ this.moleculeAAnalyser.cetone+"-oxo";}
+         console.log("aaldeh principale");
          
       case "cetone":    
-          if(this.alcool_verif.value){this.nom_complet =+ this.moleculeAAnalyser.alcool+"-hydroxy";}
+         // if(this.alcool_verif.value){this.nom_complet =+ this.moleculeAAnalyser.alcool+"-hydroxy";}
+         console.log("cet principale");
           
       case "alcool":    
-          if(this.amine_verif.value){this.nom_complet =+ this.moleculeAAnalyser.amine+"-amino";}
+         // if(this.amine_verif.value){this.nom_complet =+ this.moleculeAAnalyser.amine+"-amino";}
+         console.log("alxool principale");
          
       case "amine":     
           console.log("amine principale");
@@ -192,7 +195,6 @@ export class FormMoleculeComponent implements OnInit {
           if(this.amine_verif.value){this.nom_complet = this.moleculeAAnalyser.amine+"-amino" + this.nom_complet;}
       break;
 
-         
       case "aldehyde":  
           if(this.cetone_verif.value){this.nom_complet = this.moleculeAAnalyser.cetone+"-oxo" + this.nom_complet;}
           if(this.alcool_verif.value){this.nom_complet = this.moleculeAAnalyser.alcool+"-hydroxy" + this.nom_complet;}
@@ -215,9 +217,8 @@ export class FormMoleculeComponent implements OnInit {
         console.log("erreur prefixe");
       break;
     }
-
-
     if(this.acide_verif.value){this.nom_complet = "acide "+ this.nom_complet;}
+    
     return this.nom_complet;
   }
 }

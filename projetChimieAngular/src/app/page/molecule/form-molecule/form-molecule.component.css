@@ -30,9 +30,31 @@
     width: 6em;
 }
 #table_molecule{
-    width: 80%;
+    width: 100%;
     margin: auto;
+}
+#info_molecule{
+    width: 80%;
+    margin: 5em auto;
+	padding: 5em;
+	background: midnightblue;
+	text-align: center;
+	border: solid 3px white;
+}
+#info_molecule th{
+    color: red;
+}
+#info_molecule td{
+   font-size: larger;
+}
+.titre_section{
+    margin-top: 30px;
+    font-size: 2em;
+    color: red;
 }
 .rouge{
     background: red;
+}
+#btn_mol{
+    margin-top: 50px;
 }

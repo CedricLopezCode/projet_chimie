@@ -1,7 +1,7 @@
 .footerchimie{
     justify-content: space-around;
     padding: 10px;
-    height: 5em;
+    height: 7em;
     background: turquoise;
     color: rgba(255, 0, 0, 0.671);
     font-weight: bold;
@@ -12,4 +12,13 @@
 }
 .footerchimie img{
     height: 2.8em;
+}
+#copyright{
+    margin: 5px;
+}
+.contacts{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

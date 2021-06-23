@@ -4,6 +4,11 @@
     height: 3em;
     background: turquoise;
 }
+#titre{
+    font-weight: bold;
+    color: rgba(255, 0, 0, 0.671);
+    font-size: 2em;
+}
 .navchimie a{
     text-decoration: none;
     font-weight: bold;

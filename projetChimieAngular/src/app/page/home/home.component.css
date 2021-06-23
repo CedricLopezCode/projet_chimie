@@ -12,3 +12,13 @@ img{
     height: 5em;
     margin-bottom: 1em;
 }
+.slogan{
+    color: blue;
+    font-size: 2em;
+}
+.desc_home{
+    font-size: 1.5em;
+}
+.collo{
+    width: 30%;
+}
